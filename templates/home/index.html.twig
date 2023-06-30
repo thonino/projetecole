@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home
+{% endblock %}
+
+{% block body %}
+	{% if app.user %}
+		<div class="text-center ">
+			<a class="text-primary fst-italic  fs-1 fixed-top" style="margin-top:200px" href="{{ path('app_etudiants_new') }}">Inscrire mon enfant</a>
+		</div>
+{% else %}
+	<div class="text-center ">
+		<a class=" text-primary fst-italic  fs-1 fixed-top " style="margin-top:200px" href="{{ path('app_login') }}">Je me connecte</a>
+	</div>
+{% endif %}
+<div class="container-fluid overflow-hidden">
+	<img class="w-100" src="img/ecole1.jpeg"/>
+</div>
+{% endblock %}

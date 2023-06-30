@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiants index{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mb-3">Liste des étudiants</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date de naissance</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Document</th>
+                <th>Date d'inscription</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etudiant in etudiants %}
+            <tr>
+                <td>{{ etudiant.id }}</td>
+                <td>{{ etudiant.nom }}</td>
+                <td>{{ etudiant.prenom }}</td>
+                <td>{{ etudiant.dateDeNaissance ? etudiant.dateDeNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ etudiant.adresse }}</td>
+                <td>{{ etudiant.telephone }}</td>
+                <td>{{ etudiant.email }}</td>
+                <td><img src="/uploads/{{etudiant.document}}" width="100" height="100"/></td>
+                <td>{{ (etudiant.dateInscription) ? etudiant.dateInscription|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_etudiants_show', {'id': etudiant.id}) }}">Afficher</a>
+                    <a class="btn btn-warning" href="{{ path('app_etudiants_edit', {'id': etudiant.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('app_etudiants_new') }}">Nouveau Etudiant</a>
+{% endblock %}

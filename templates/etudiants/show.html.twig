@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiants{% endblock %}
+
+{% block body %}
+    <h1>Etudiants</h1>
+<img class="rounded mb-2" src="/uploads/{{etudiant.document}}" width="400"/>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ etudiant.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ etudiant.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ etudiant.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Date_de_naissance</th>
+                <td>{{ etudiant.dateDeNaissance ? etudiant.dateDeNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ etudiant.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ etudiant.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ etudiant.email }}</td>
+            </tr>
+      
+            <tr>
+                <th>Date_inscription</th>
+                <td>{{ etudiant.dateInscription ? etudiant.dateInscription|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a  class="btn btn-primary mb-2" href="{{ path('app_etudiants_index') }}">Retour</a>
+
+    <a  class="btn btn-warning mb-2" href="{{ path('app_etudiants_edit', {'id': etudiant.id}) }}">Modifier</a>
+
+    {{ include('etudiants/_delete_form.html.twig') }}
+{% endblock %}

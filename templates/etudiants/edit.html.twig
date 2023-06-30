@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Etudiants{% endblock %}
+
+{% block body %}
+	<div class="col-6 m-auto">
+    <h1>Edit Etudiants</h1>
+
+    {{ include('etudiants/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+
+    <a class="btn btn-primary mb-2" href="{{ path('app_etudiants_index') }}">Retour</a>
+
+    {{ include('etudiants/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

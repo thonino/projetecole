@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Etudiants
+{% endblock %}
+
+{% block body %}
+	
+	<div class="col-6 m-auto">
+    <h1 class="text-center text-primary fst-italic ">J'inscris mon enfant</h1>
+		{{ include('etudiants/_form.html.twig') }}
+        <a class="btn btn-primary" href="{{ path('app_etudiants_index') }}">Retour</a>
+	</div>
+
+
+	
+{% endblock %}
