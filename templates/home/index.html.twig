@@ -5,15 +5,38 @@
 
 {% block body %}
 	{% if app.user %}
-		<div class="text-center ">
-			<a class="text-primary fst-italic  fs-1 fixed-top" style="margin-top:200px" href="{{ path('app_etudiants_new') }}">Inscrire mon enfant</a>
+		<div class="text-center mt-5">
+			<a 
+        class="text-primary fst-italic fs-1 fixed-top" 
+        href="{{ path('app_etudiants_new') }}"
+        style="margin-top:200px"
+      >
+        Inscrire mon enfant
+      </a>
 		</div>
-{% else %}
-	<div class="text-center ">
-		<a class=" text-primary fst-italic  fs-1 fixed-top " style="margin-top:200px" href="{{ path('app_login') }}">Je me connecte</a>
+	{% else %}
+		<div class="text-center mt-5">
+			<a 
+        class="text-primary fst-italic fs-1 fixed-top" 
+        href="{{ path('app_login') }}"
+        style="margin-top:200px"
+      >
+        Je me connecte
+      </a>
+		</div>
+	{% endif %}
+	<div
+		class="w-100 vh-100 fixed-top" 
+    style=
+      "
+      background-image: url('img/ecole1.jpeg'); 
+      background-size: cover; 
+      background-position: center;
+      z-index: -1;
+
+      "
+  >
 	</div>
-{% endif %}
-<div class="container-fluid overflow-hidden">
-	<img class="w-100" src="img/ecole1.jpeg"/>
-</div>
 {% endblock %}
+
+
